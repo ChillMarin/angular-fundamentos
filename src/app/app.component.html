@@ -1,5 +1,5 @@
 <h1>*ngSwitch</h1>
-<input type="text" required [(ngModel)]="person.name">
+<input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
   <div *ngSwitchCase="'Max'">You are Max</div>
   <div *ngSwitchCase="'Anna'">You are Anna</div>
@@ -10,8 +10,8 @@
 <div>
   <div *ngFor="let product of products">
     <img width="250" [src]="product.image" />
-    <h2>{{product.price}}</h2>
-    <p>{{product.name}}</p>
+    <h2>{{ product.price }}</h2>
+    <p>{{ product.name }}</p>
   </div>
 </div>
 
@@ -19,22 +19,23 @@
 <input type="text" required #nameInput="ngModel" [(ngModel)]="newName" />
 <button (click)="addName()">Add name</button>
 <ul>
-  <li *ngIf="names.length===0">No hay nombres</li>
+  <li *ngIf="names.length === 0">No hay nombres</li>
   <li *ngFor="let name of names; index as i">
-    {{i}} {{name}}
+    {{ i }} {{ name }}
     <button (click)="deleteName(i)">Delete</button>
   </li>
 </ul>
 
-
 <h1>*ngIf</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <p *ngIf="person.name === 'nicolas'">Soy Nicolas</p>
-<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">Soy Julian</p>
+<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">
+  Soy Julian
+</p>
 <ng-template #myBlock>
   <p>Bloque de else</p>
 </ng-template>
-<hr/>
+<hr />
 
 <h1>NgModel</h1>
 <p>Nombre {{ person.name }}</p>
