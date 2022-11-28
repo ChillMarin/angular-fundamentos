@@ -1,20 +1,107 @@
+<h1>Fomulario</h1>
+<form #myForm="ngForm" (ngSubmit)="onRegister(myForm.value)">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input
+      type="text"
+      required
+      id="name"
+      name="name"
+      [(ngModel)]="register.name"
+    />
+    <p>Mensaje de error</p>
+  </div>
+  <div class="input-group">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      required
+      id="email"
+      name="email"
+      [(ngModel)]="register.email"
+    />
+    <p>Mensaje de error</p>
+  </div>
+  <div class="input-group">
+    <label for="password">Contraseña</label>
+    <input
+      required
+      type="password"
+      id="password"
+      name="password"
+      [(ngModel)]="register.password"
+    />
+    <p>Mensaje de error</p>
+  </div>
+  <div class="input-group">
+    <label for="confirmPassword">Confirmar contraseña</label>
+    <input
+      type="password"
+      required
+      id="confirmPassword"
+      name="confirmPassword"
+      [(ngModel)]="register.password"
+    />
+    <p>Mensaje de error</p>
+  </div>
+  <button type="submit" [disabled]="myForm.invalid">Registrar</button>
+  <button type="button">Accion</button>
+</form>
+<hr />
+
+<h1>NgClass & NgStyle</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
+<hr
+  class="line-error"
+  [ngClass]="{
+    valid: nameInput4.valid,
+    invalid: nameInput4.invalid
+  }"
+/>
+<p class="message-error" [class.invalid]="nameInput4.invalid">
+  El campo es requerido
+</p>
+<div class="styles">
+  <!-- Aqui se llama el objeto y se modifican los valores -->
+  <div>
+    <input type="number" [(ngModel)]="box.width" />
+    <input type="number" [(ngModel)]="box.height" />
+    <input type="color" [(ngModel)]="box.background" />
+  </div>
+  <div>
+    <div
+      [ngStyle]="{
+        'width.px': box.width,
+        'height.px': box.height,
+        'background-color': box.background,
+        display: 'block'
+      }"
+    ></div>
+  </div>
+</div>
+
+<hr />
 <h1>Class & Style</h1>
 <input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name" />
-<p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
+<p class="message-error" [class.invalid]="nameInput2.invalid">
+  El campo es requerido
+</p>
 <label for="">Nombre</label>
 <input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
-<p [style.font-size]="nameInput3.invalid ? '24px' : '12px'">Texto texto texto</p>
+<p [style.font-size]="nameInput3.invalid ? '24px' : '12px'">
+  Texto texto texto
+</p>
 
 <div class="styles">
   <div>
     <label for="">Nombre</label>
-    <input type="text" [(ngModel)]="widthImg"/>
+    <input type="text" [(ngModel)]="widthImg" />
   </div>
   <div>
     <img [style.width.px]="widthImg" [src]="person.avatar" />
   </div>
 </div>
-<hr>
+<hr />
 
 <h1>*ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name" />

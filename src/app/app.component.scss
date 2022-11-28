@@ -31,6 +31,18 @@
   }
 }
 
+.line-error{
+  height: 0;
+  border-bottom: 1px solid ;
+  transition: all linear 0.5s;
+  &.invalid{
+    border: 1px solid red;
+  }
+  &.valid{
+    border: 1px solid green;
+  }
+}
+
 .styles{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
